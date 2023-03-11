@@ -6,25 +6,29 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-# Log和SimpleLogger在TUI应用里看不到
+# Log 和 SimpleLogger在 TUI 应用里看不到
 # log = "0.4"
 # simple_logger = "1.16"
 
-# crossterm支持windows,但性能比termion稍差，需要最新0.23版本，否则鼠标支持有问题
-tui = { version = "0.14", default-features = false, features = ['crossterm', 'serde'] }
-crossterm = { version = "0.23", features = [ "serde" ] }
-
+# 用 Rust 构建终端用户界面的框架
+# crossterm 支持 windows, 但性能比 termion 稍差，旧版本鼠标支持有问题
+# 使用 tui-rs 和 crossterm 启动一个控制台的终端界面
+tui = { version = "0.19", default-features = false, features = ['crossterm', 'serde'] }
+crossterm = { version = "0.25", features = [ "serde" ] }
+# 系列化 library
 serde = {version = "1.0", features = ["derive"] }
 serde_json = "1.0"
+# time library
 chrono = "0.4"
 
 # 解决tui里中文宽度的计算
 unicode-width = "0.1"
 
 # reqwest太大了3M, ureq也有2M, http_req只有300k
-http_req = "0.8"
+http_req = "0.9"
 
 # 查询跨平台的通用目录位置
 dirs-next = "2.0"
 
-#lazy_static = "1.4.0"
+# 懒加载 crate
+# lazy_static = "1.4.0"
