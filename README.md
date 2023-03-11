@@ -6,7 +6,7 @@ A simple terminal tool for stock query written in Rust 🦀
 
 使用 Rust 开发的股价查询终端应用
 
-![](images/screen.gif)
+![](images/rust-stock.gif)
 
 
 ### 主要使用tui-rs 一款超好用的跨平台命令行界面库
