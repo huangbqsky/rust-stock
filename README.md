@@ -9,9 +9,11 @@ A simple terminal tool for stock query written in Rust 🦀
 ![](images/rust-stock.gif)
 
 
-### 主要使用tui-rs 一款超好用的跨平台命令行界面库
+## 引用库介绍
 
 ```
+tui-rs 是一款超好用的跨平台命令行界面库
+
 使用 tui.rs 提供的以下模块进行 UI 编写(所有 UI 元素都实现了 Widget 或 StatefuWidget Trait)：
 
 bakend 用于生成管理命令行的后端
