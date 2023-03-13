@@ -93,7 +93,7 @@ impl App {
             input: String::new(),
             error: Arc::new(Mutex::new(String::new())),
             stocks: Arc::new(Mutex::new([].to_vec())),
-            //ListState:default为未选择，因为可能stocks为空，所以不能自动选第一个
+            // ListState:default为未选择，因为可能 stocks 为空，所以不能自动选第一个
             stocks_state: ListState::default(),
             last_refresh: Arc::new(Mutex::new(Local::now())),
             tick_count: 0,
@@ -104,7 +104,7 @@ impl App {
     }
     pub fn save_stocks(&self) -> DynResult {
         let db = dirs_next::home_dir().unwrap().join(DB_PATH);
-        // 每个stock单独存一个对象，是考虑将来的扩展性
+        // 每个 stock 单独存一个对象，是考虑将来的扩展性
         let stocks = self.stocks.lock().unwrap();
         let lists: Vec<_> = stocks
             .iter()
@@ -171,7 +171,7 @@ impl App {
                     let content = String::from_utf8_lossy(&writer);
                     if content.starts_with("_ntes_quote_callback") {
                         let mut stocks = stock_clone.lock().unwrap();
-                        //网易的返回包了一个js call，用skip,take,collect实现一个substring剥掉它
+                        // 网易的返回包了一个js call，用skip,take,collect实现一个substring剥掉它
                         let json: Map<String, Value> = serde_json::from_str(
                             &content
                                 .chars()
@@ -181,7 +181,7 @@ impl App {
                         )
                         .unwrap();
                         for stock in stocks.iter_mut() {
-                            //如果code不对,返回的json里不包括这个对象, 用unwrap_or生成一个空对象,防止异常
+                            // 如果code不对,返回的json里不包括这个对象, 用unwrap_or生成一个空对象,防止异常
                             let obj = json
                                 .get(&stock.code)
                                 .unwrap_or(&json!({}))
@@ -227,6 +227,7 @@ impl App {
         }
     }
 
+    // 返回股票代码串
     pub fn get_codes(&self) -> String {
         let codes: Vec<String> = self
             .stocks
