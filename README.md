@@ -36,8 +36,10 @@ tui介绍：https://www.51cto.com/article/703696.html
 # 编译/运行
 
 ```
-cargo build 
-cargo run
+➜ git https://github.com/huangbqsky/rust-stock
+➜ cd rust-stock
+➜ cargo build 
+➜ cargo run
 ```
 
 
