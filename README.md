@@ -42,4 +42,7 @@ tui介绍：https://www.51cto.com/article/703696.html
 ➜ cargo run
 ```
 
+# 参考
+- https://github.com/x1y9/rust-stock
 
+- https://github.com/chessbr/rust-exchange
